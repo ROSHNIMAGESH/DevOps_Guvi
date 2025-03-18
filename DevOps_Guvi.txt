@@ -1,0 +1,19 @@
+INSTALL
+*Git
+*Maven
+*Docker
+*Jenkins
+*Virtual machine -> Ubuntu
+
+DOCKER COMMANDS
+>>docker images 
+>>docker run -itd -P <Image id>
+>>docker ps (to check if container is running)
+>>docker ls
+>>docker copy 
+>>docker exec -it <container_id> bash (to access running container)
+>>docker stop <container_id> (to stop a container)
+>>docker rm <container_id> (to remove a container)
+>>docker rmi <image_id> (to remove images)
+
+
