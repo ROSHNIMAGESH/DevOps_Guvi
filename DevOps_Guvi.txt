@@ -121,8 +121,10 @@ docker ps
 sudo chmod 666 /var/run/docker.sock (if images failed)
 
 =>MINIKUBE
+-->
 curl -LO https://dl.k8s.io/release/v1.32.0/bin/linux/amd64/kubectl 
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+--<
 -->
 chmod +x kubectl
 mkdir -p ~/.local/bin
@@ -138,5 +140,33 @@ docker ps (check is container is running)
 kubectl get node
 kubectl get pod (No resources found)
 kubectl get pod -o wide (No resources found)
+minikube status
+kubeclt get deploy 
+kubectl get replica
+
+sudo nano docker-compose.yml
+(
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - 80:80
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+)
+ls
+-->
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+--<
+docker-compose up -d
+docker-compose images
+docker-compose ps
+docker-compose down
+docker exec -it <created name> /bin/bash
 
 
