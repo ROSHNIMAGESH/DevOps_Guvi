@@ -169,4 +169,38 @@ docker-compose ps
 docker-compose down
 docker exec -it <created name> /bin/bash
 
+=>
+git clone <repo>
+cd <repo name>
+ls
+mvn clean package
+cd target/
+ls
+cd ..
+ls
+
+=>
+cd .m2/
+cd repository
+cd com
+cd mycompany
+cd app
+cd my-app
+cd ../..
+cd <build directory (till target)>
+ls
+
+
+=>
+cd DevOps_Guvi
+sudo nano Jenkins
+(
+)
+git add .
+git commit
+git push
+(password -> git token)
+sudo chmod 666 /var/run/docker.sock
+
+
 
