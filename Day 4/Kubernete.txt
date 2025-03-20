@@ -56,3 +56,47 @@ $ kubectl logs my-pod
 
 5. Execute any command inside Pod (Inside Pod OS)
 $ kubectl exec <pod-name> -- <command>
+
+-----
+
+Services (short name = svc):
+Service is an abstraction that defines a logical set of pods and a policy to access them. Services enable network connectivity and load balancing to the pods that are part of the service, allowing other components within or outside the cluster to interact with the application.
+Service Types: Kubernetes supports different types of services:
+1.	NodePort: Exposes the service on a static port on each selected node's IP. This type makes the service accessible from outside the cluster by the <NodeIP>:<NodePort> combination.
+
+2.	ClusterIP: Exposes the service on a cluster-internal IP. This type makes the service only reachable within the cluster.
+
+3.	LoadBalancer: Creates an external load balancer in cloud environments, which routes traffic to the service.
+
+-----
+
+
+2. Create ReplicaSet by executing above YAML file
+$ kubectl create -f rs-test.yml
+# Do necessary modifications if exist, else create new
+$ kubectl apply -f rs-test.yml
+# Completely Modify Pod Template
+$ kubectl replace –f rs-test.yml
+
+3. View ReplicaSets 
+$ kubectl get replicasets
+$ kubectl get rs
+$ kubectl get rs –o wide
+$ kubectl get rs <replica-set-name> –o json
+$ kubectl get rs <replica-set-name> –o yaml
+
+4. View ReplicaSet Description 
+$ kubectl describe rs <replica-set-name>
+5. We can modify generated/updated YAML file
+$ kubectl edit rs <replica-set-name>
+## change replicas: count to any other value then (ESC):wq
+
+# We can modify our YAML file and then execute apply command
+$ kubectl apply -f rs-test.yml
+
+## We can Even scale using command also
+$ kubectl scale replicaset <replicaset-name> --replicas=<desired-replica-count>
+
+6. Delete ReplicaSet
+$ kubectl delete rs <replica-set-name>
+$ kubectl delete -f rs-test.yml
