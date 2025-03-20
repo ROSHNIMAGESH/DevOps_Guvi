@@ -202,5 +202,45 @@ git push
 (password -> git token)
 sudo chmod 666 /var/run/docker.sock
 
+----------x----------x----------x----------x----------x----------
+
+KUBERNETES(k8S)
+-> Kubernetes is an open source container orchestration engine for automating deployment, scaling, and management of containerized applications. This open source project is hosted by the Cloud Native Computing Foundation(CNCF).
+-> It provides a scalable and resilient framework for automating the deployment, scaling, and management of applications across clusters of servers.
+
+HISTORY OF K8S
+->In 2014, Google open-sourced a version of Borg called Kubernetes
+->Kubernetes was donated to the CNCF, a neutral home for open-source cloud-native projects, in July 2025.
+
+KUBERNETE ARCHITECTURE
+
+Control Plane/ Master Node
+->
+
+
+-----x-----x-----x-----x-----x-----
+
+minikube start
+kubectl get pod
+kubectl delete all --all
+kubectl delete pod <pod name>
+kubectl run <pod name> --image=<img name> --port=<port no>
+kubectl get node
+kubectl get pod
+kubectl get pod -o wide
+kubectl logs my-pod
+kubectl describe pod my-pod
+minikube ssh  (exit)
+kubectl exec -it my-pod -- /bin/bash
+sudo nano pod.yml
+kubectl apply -f pod.yml
+kubectl get rs
+kubectl create deployment web-nginx --image=nginx --replicas=1
+kubectl get deploy
+kubectl get rs-test.yml
+kubectl exec -it <pod name> -- /bin/bash (for replica)
+
+
+
 
 
